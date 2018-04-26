@@ -1,10 +1,11 @@
 var React = require('react');
 
-var Main = (props) =>{
+var TodoApp = (props) =>{
     return(
         <div>
             <div className="row">
                 <div className="columns medium-6 large-4 small-centered">
+                    <p>TodoApp.jsx</p>
                     {props.children}
                 </div>
             </div>
@@ -12,4 +13,4 @@ var Main = (props) =>{
     );
 }
 
-module.exports = Main;
+module.exports = TodoApp;
