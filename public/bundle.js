@@ -25494,16 +25494,20 @@
 	            searchText: '',
 	            todos: [{
 	                id: uuid(),
-	                text: 'Finish this application'
+	                text: 'Finish this application',
+	                completed: false
 	            }, {
 	                id: uuid(),
-	                text: 'Start working on the actual codebase'
+	                text: 'Start working on the actual codebase',
+	                completed: true
 	            }, {
 	                id: uuid(),
-	                text: 'Go Home'
+	                text: 'Go Home',
+	                completed: true
 	            }, {
 	                id: uuid(),
-	                text: 'Watch anime movie because im a closet weeb'
+	                text: 'Watch Deadpool 2',
+	                completed: false
 	            }]
 	        };
 	    },
@@ -25513,9 +25517,21 @@
 	            // add new todo property
 	            {
 	                id: uuid(),
-	                text: text
+	                text: text,
+	                completed: false
 	            }])
 	        });
+	    },
+	    handleToggle: function handleToggle(id) {
+	        var updatedTodos = this.state.todos.map(function (todo) {
+	            if (todo.id === id) {
+	                // set the completed state to the oppsite of the state it was originally in, true to false
+	                todo.completed = !todo.completed;
+	            }
+	            return todo;
+	        });
+
+	        this.setState({ todos: updatedTodos });
 	    },
 	    handleSearch: function handleSearch(showCompleted, searchText) {
 	        this.setState({
@@ -25538,7 +25554,7 @@
 	                    'div',
 	                    { className: 'columns medium-6 large-4 small-centered' },
 	                    React.createElement(TodoSearch, { onSearch: this.handleSearch }),
-	                    React.createElement(TodoList, { todos: todos }),
+	                    React.createElement(TodoList, { todos: todos, onToggle: this.handleToggle }),
 	                    React.createElement(AddTodo, { todoAdd: this.handleAddTodo })
 	                )
 	            )
@@ -25564,6 +25580,8 @@
 	    displayName: 'TodoList',
 
 	    render: function render() {
+	        var _this = this;
+
 	        var todos = this.props.todos;
 
 
@@ -25572,7 +25590,7 @@
 	            and whatever you return gets replaced. This acts like a foreach loop. */
 	            return todos.map(function (todo) {
 	                return {/* ... is a spread operator that allows you to spread out todo objects into 
-	                        individual props */}, React.createElement(Todo, _extends({ key: todo.id }, todo));
+	                        individual props */}, React.createElement(Todo, _extends({ key: todo.id }, todo, { onToggle: _this.props.onToggle }));
 	            });
 	        };
 
@@ -25590,24 +25608,28 @@
 /* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var Todo = React.createClass({
-	    displayName: 'Todo',
+	    displayName: "Todo",
 
 	    render: function render() {
+	        var _this = this;
+
 	        var _props = this.props,
 	            id = _props.id,
-	            text = _props.text;
+	            text = _props.text,
+	            completed = _props.completed;
 
 
 	        return React.createElement(
-	            'div',
-	            null,
-	            id,
-	            '. ',
+	            "div",
+	            { onClick: function onClick() {
+	                    _this.props.onToggle(id);
+	                } },
+	            React.createElement("input", { type: "checkbox", checked: completed }),
 	            text
 	        );
 	    }

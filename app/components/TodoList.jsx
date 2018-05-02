@@ -13,7 +13,7 @@ var TodoList = React.createClass({
                 return (
                     {/* ... is a spread operator that allows you to spread out todo objects into 
                     individual props */},
-                    <Todo key={todo.id} {...todo}/>
+                    <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
                 );
             });
         };

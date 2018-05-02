@@ -14,19 +14,23 @@ var TodoApp = React.createClass({
             todos: [
                 {
                     id: uuid(),
-                    text: 'Finish this application'
+                    text: 'Finish this application',
+                    completed: false
                 },
                 {
                     id: uuid(),
-                    text: 'Start working on the actual codebase'
+                    text: 'Start working on the actual codebase',
+                    completed: true
                 },
                 {
                     id: uuid(),
-                    text: 'Go Home'
+                    text: 'Go Home',
+                    completed: true
                 },
                 {
                     id: uuid(),
-                    text: 'Watch anime movie because im a closet weeb'
+                    text: 'Watch Deadpool 2',
+                    completed: false
                 }
             ]
         }
@@ -39,10 +43,22 @@ var TodoApp = React.createClass({
                 // add new todo property
                 {
                     id: uuid(),
-                    text: text
+                    text: text,
+                    completed: false
                 }
             ]
         })
+    },
+    handleToggle: function (id) {
+        var updatedTodos = this.state.todos.map((todo) => {
+            if (todo.id === id) {
+                // set the completed state to the oppsite of the state it was originally in, true to false
+                todo.completed = !todo.completed;
+            }
+            return todo;
+        });
+
+        this.setState({todos: updatedTodos});
     },
     handleSearch: function (showCompleted, searchText) {
         this.setState ({
@@ -61,7 +77,7 @@ var TodoApp = React.createClass({
                         <TodoSearch onSearch={this.handleSearch}/>
                         {/* calling the todoList component with attribute todos that contains the todos state which is
                         now known as a "prop */}
-                        <TodoList todos={todos}/>
+                        <TodoList todos={todos} onToggle={this.handleToggle}/>
                         <AddTodo todoAdd={this.handleAddTodo}/>
                     </div>
                 </div>
