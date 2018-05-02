@@ -25529,8 +25529,12 @@
 	    },
 	    render: function render() {
 	        // pulling the todos array state into a variable
-	        var todos = this.state.todos;
+	        var _state = this.state,
+	            todos = _state.todos,
+	            showCompleted = _state.showCompleted,
+	            searchText = _state.searchText;
 
+	        var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 
 	        return React.createElement(
 	            'div',
@@ -25542,7 +25546,7 @@
 	                    'div',
 	                    { className: 'columns medium-6 large-4 small-centered' },
 	                    React.createElement(TodoSearch, { onSearch: this.handleSearch }),
-	                    React.createElement(TodoList, { todos: todos, onToggle: this.handleToggle }),
+	                    React.createElement(TodoList, { todos: filteredTodos, onToggle: this.handleToggle }),
 	                    React.createElement(AddTodo, { todoAdd: this.handleAddTodo })
 	                )
 	            )
@@ -34600,6 +34604,34 @@
 	        // }
 
 	        return $.isArray(todos) ? todos : [];
+	    },
+	    filterTodos: function filterTodos(todos, showCompleted, searchText) {
+	        var filteredTodos = todos;
+
+	        // filter by showCompleted
+	        // .filter will return the object as long as its true, it will filter through every item in the array
+	        filteredTodos = filteredTodos.filter(function (todo) {
+	            return !todo.completed || showCompleted;
+	        });
+
+	        // filter by searchText
+	        filteredTodos = filteredTodos.filter(function (todo) {
+	            var text = todo.text.toLowerCase();
+	            return searchText.length === 0 || text.indexOf(searchText) > -1;
+	        });
+
+	        // sort todos with non-completed first
+	        filteredTodos.sort(function (a, b) {
+	            if (a.completed === false && b.completed === true) {
+	                return -1;
+	            } else if (a.completed && !b.completed) {
+	                return 1;
+	            } else {
+	                return 0;
+	            }
+	        });
+
+	        return filteredTodos;
 	    }
 	};
 

@@ -51,7 +51,8 @@ var TodoApp = React.createClass({
     },
     render: function () {
         // pulling the todos array state into a variable
-        var {todos} = this.state;
+        var {todos, showCompleted, searchText} = this.state;
+        var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 
         return(
             <div>
@@ -60,7 +61,7 @@ var TodoApp = React.createClass({
                         <TodoSearch onSearch={this.handleSearch}/>
                         {/* calling the todoList component with attribute todos that contains the todos state which is
                         now known as a "prop */}
-                        <TodoList todos={todos} onToggle={this.handleToggle}/>
+                        <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
                         <AddTodo todoAdd={this.handleAddTodo}/>
                     </div>
                 </div>
