@@ -25478,6 +25478,7 @@
 	var React = __webpack_require__(8);
 
 	var TodoList = __webpack_require__(230);
+	var AddTodo = __webpack_require__(238);
 
 	var TodoApp = React.createClass({
 	    displayName: 'TodoApp',
@@ -25500,6 +25501,9 @@
 	            }]
 	        };
 	    },
+	    handleAddTodo: function handleAddTodo(text) {
+	        alert('new todo: ' + text);
+	    },
 	    render: function render() {
 	        // pulling the todos array state into a variable
 	        var todos = this.state.todos;
@@ -25514,7 +25518,8 @@
 	                React.createElement(
 	                    'div',
 	                    { className: 'columns medium-6 large-4 small-centered' },
-	                    React.createElement(TodoList, { todos: todos })
+	                    React.createElement(TodoList, { todos: todos }),
+	                    React.createElement(AddTodo, { todoAdd: this.handleAddTodo })
 	                )
 	            )
 	        );
@@ -25977,6 +25982,50 @@
 
 	// exports
 
+
+/***/ }),
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(8);
+
+	var AddTodo = React.createClass({
+	    displayName: "AddTodo",
+
+	    onSubmit: function onSubmit(e) {
+	        // this will prevent the current page from refereshing when the form is submitted
+	        e.preventDefault();
+	        var todo = this.refs.todoInput.value;
+
+	        if (todo.length > 0) {
+	            this.refs.todoInput.value = "";
+	            // add a prop called todoAdd passing in todo input
+	            this.props.todoAdd(todo);
+	        } else {
+	            this.refs.todoInput.focus();
+	        }
+	    },
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "form",
+	                { onSubmit: this.onSubmit },
+	                React.createElement("input", { type: "text", ref: "todoInput", placeholder: "eg. Feed the dog" }),
+	                React.createElement(
+	                    "button",
+	                    { className: "button expanded" },
+	                    "Add Task"
+	                )
+	            )
+	        );
+	    }
+	});
+
+	module.exports = AddTodo;
 
 /***/ })
 /******/ ]);

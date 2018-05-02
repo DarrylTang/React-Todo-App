@@ -1,6 +1,7 @@
 var React = require('react');
 
 var TodoList = require('TodoList');
+var AddTodo = require('AddTodo');
 
 var TodoApp = React.createClass({
     // Creating an initial state
@@ -26,6 +27,9 @@ var TodoApp = React.createClass({
             ]
         }
     },
+    handleAddTodo: function (text) {
+        alert('new todo: ' + text);
+    },
     render: function () {
         // pulling the todos array state into a variable
         var {todos} = this.state;
@@ -37,6 +41,7 @@ var TodoApp = React.createClass({
                         {/* calling the todoList component with attribute todos that contains the todos state which is
                         now known as a "prop */}
                         <TodoList todos={todos}/>
+                        <AddTodo todoAdd={this.handleAddTodo}/>
                     </div>
                 </div>
             </div>
