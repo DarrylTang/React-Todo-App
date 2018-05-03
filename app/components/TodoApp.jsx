@@ -60,13 +60,16 @@ var TodoApp = React.createClass({
 
         return(
             <div>
+                <h1 className="page-title">Todo App</h1>
                 <div className="row">
-                    <div className="columns medium-6 large-4 small-centered">
-                        <TodoSearch onSearch={this.handleSearch}/>
-                        {/* calling the todoList component with attribute todos that contains the todos state which is
-                        now known as a "prop */}
-                        <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
-                        <AddTodo todoAdd={this.handleAddTodo}/>
+                    <div className="columns medium-6 large-5 small-centered">
+                        <div className="container">
+                            <TodoSearch onSearch={this.handleSearch}/>
+                            {/* calling the todoList component with attribute todos that contains the todos state which is
+                            now known as a "prop */}
+                            <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
+                            <AddTodo todoAdd={this.handleAddTodo}/>
+                        </div>
                     </div>
                 </div>
             </div>

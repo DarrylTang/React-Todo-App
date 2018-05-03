@@ -7,6 +7,11 @@ var TodoList = React.createClass({
         var {todos} = this.props;
         
         var renderTodos = () => {
+            if (todos.length === 0) {
+                return (
+                    <p className="container__message">Nothing to do yet, add a a task!</p>
+                );
+            }
             /* todos.map takes a function, and it calls that function for every element in the array,
             and whatever you return gets replaced. This acts like a foreach loop. */
             return todos.map((todo) => {
