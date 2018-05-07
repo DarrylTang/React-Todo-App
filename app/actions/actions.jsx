@@ -11,16 +11,16 @@ export var toogleShowCompleted = () => {
     };
 };
 
-export var toggleTodo = (id) => {
-    return {
-        type: 'TOGGLE_TODO',
-        id
-    };
-};
-
 export var addTodo = (text) => {
     return {
         type: 'ADD_TODO',
         text
+    };
+};
+
+export var toggleTodo = (id) => {
+    return {
+        type: 'TOGGLE_TODO',
+        id
     };
 };
