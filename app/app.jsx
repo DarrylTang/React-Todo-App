@@ -12,10 +12,6 @@ store.subscribe(() => {
   console.log('New State', store.getState());
 });
 
-store.dispatch(actions.addTodo('Clean the area'));
-store.dispatch(actions.setSearchText('yard'));
-store.dispatch(actions.toggleShowCompleted());
-
 // Load foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
