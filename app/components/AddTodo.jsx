@@ -1,15 +1,20 @@
 var React = require('react');
+var {connect} = require('react-redux');
+var actions = require('actions');
 
-var AddTodo = React.createClass({
+
+export var AddTodo = React.createClass({
     onSubmit: function (e) {
         // this will prevent the current page from refereshing when the form is submitted
         e.preventDefault();
+        var {dispatch} = this.props;
         var todo = this.refs.todoInput.value;
 
         if (todo.length > 0) {
             this.refs.todoInput.value = "";
             // add a prop called todoAdd passing in todo input
-            this.props.todoAdd(todo);
+            // this.props.todoAdd(todo);
+            dispatch(actions.addTodo(todo));
         } else {
             this.refs.todoInput.focus();
         }
@@ -26,4 +31,4 @@ var AddTodo = React.createClass({
     }
 });
 
-module.exports = AddTodo;
+export default connect()(AddTodo);

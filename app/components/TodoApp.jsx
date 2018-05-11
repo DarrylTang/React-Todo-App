@@ -2,8 +2,9 @@ var React = require('react');
 var uuid = require('node-uuid');
 var moment = require('moment');
 
-var TodoList = require('TodoList');
-var AddTodo = require('AddTodo');
+import TodoList from 'TodoList';
+import AddTodo from 'Addtodo';
+
 var TodoSearch = require('TodoSearch');
 var TodoAPI = require('TodoAPI');
 
@@ -35,18 +36,18 @@ var TodoApp = React.createClass({
             ]
         })
     },
-    handleToggle: function (id) {
-        var updatedTodos = this.state.todos.map((todo) => {
-            if (todo.id === id) {
-                // set the completed state to the oppsite of the state it was originally in, true to false
-                todo.completed = !todo.completed;
-                todo.completedAt = todo.completed ? moment().unix() : undefined
-            }
-            return todo;
-        });
+    // handleToggle: function (id) {
+    //     var updatedTodos = this.state.todos.map((todo) => {
+    //         if (todo.id === id) {
+    //             // set the completed state to the oppsite of the state it was originally in, true to false
+    //             todo.completed = !todo.completed;
+    //             todo.completedAt = todo.completed ? moment().unix() : undefined
+    //         }
+    //         return todo;
+    //     });
 
-        this.setState({todos: updatedTodos});
-    },
+    //     this.setState({todos: updatedTodos});
+    // },
     handleSearch: function (showCompleted, searchText) {
         this.setState ({
             showCompleted: showCompleted,
@@ -67,7 +68,7 @@ var TodoApp = React.createClass({
                             <TodoSearch onSearch={this.handleSearch}/>
                             {/* calling the todoList component with attribute todos that contains the todos state which is
                             now known as a "prop */}
-                            <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
+                            <TodoList/>
                             <AddTodo todoAdd={this.handleAddTodo}/>
                         </div>
                     </div>
