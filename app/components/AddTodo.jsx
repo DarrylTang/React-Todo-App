@@ -3,8 +3,8 @@ var {connect} = require('react-redux');
 var actions = require('actions');
 
 
-export var AddTodo = React.createClass({
-    onSubmit: function (e) {
+export class AddTodo extends React.Component {
+    onSubmit (e) {
         // this will prevent the current page from refereshing when the form is submitted
         e.preventDefault();
         var {dispatch} = this.props;
@@ -18,17 +18,17 @@ export var AddTodo = React.createClass({
         } else {
             this.refs.todoInput.focus();
         }
-    },
-    render: function () {
+    };
+    render() {
         return (
             <div className="container__footer">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit.bind(this)}>
                     <input type="text" ref="todoInput" placeholder="eg. Feed the dog"/>
                     <button className="button expanded">Add Task</button>
                 </form>
             </div>
         )
-    }
-});
+    };
+};
 
 export default connect()(AddTodo);

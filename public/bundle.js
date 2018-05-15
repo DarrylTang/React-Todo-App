@@ -26868,6 +26868,13 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.TodoApp = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _TodoList = __webpack_require__(253);
 
 	var _TodoList2 = _interopRequireDefault(_TodoList);
@@ -26882,91 +26889,111 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var React = __webpack_require__(8);
 	var uuid = __webpack_require__(385);
 	var moment = __webpack_require__(255);
 
 	// var TodoSearch = require('TodoSearch');
 
-	var TodoApp = React.createClass({
-	    displayName: 'TodoApp',
+	var TodoApp = exports.TodoApp = function (_React$Component) {
+	    _inherits(TodoApp, _React$Component);
 
-	    // Creating an initial state
-	    // getInitialState: function () {
-	    //     return {
-	    //         showCompleted: false,
-	    //         searchText: '',
-	    //         todos: TodoAPI.getTodos()
-	    //     }
-	    // },
-	    // componentDidUpdate: function () {
-	    //     TodoAPI.setTodos(this.state.todos);
-	    // },
-	    // handleAddTodo: function (text) {
-	    //     this.setState({
-	    //         todos: [
-	    //             // set current todos
-	    //             ...this.state.todos,
-	    //             // add new todo property
-	    //             {
-	    //                 id: uuid(),
-	    //                 text: text,
-	    //                 completed: false,
-	    //                 createdAt: moment().unix(),
-	    //                 completedAt: undefined
-	    //             }
-	    //         ]
-	    //     })
-	    // },
-	    // handleToggle: function (id) {
-	    //     var updatedTodos = this.state.todos.map((todo) => {
-	    //         if (todo.id === id) {
-	    //             // set the completed state to the oppsite of the state it was originally in, true to false
-	    //             todo.completed = !todo.completed;
-	    //             todo.completedAt = todo.completed ? moment().unix() : undefined
-	    //         }
-	    //         return todo;
-	    //     });
+	    function TodoApp() {
+	        _classCallCheck(this, TodoApp);
 
-	    //     this.setState({todos: updatedTodos});
-	    // },
-	    // handleSearch: function (showCompleted, searchText) {
-	    //     this.setState ({
-	    //         showCompleted: showCompleted,
-	    //         searchText: searchText.toLowerCase()
-	    //     })
-	    // },
-	    render: function render() {
-	        // pulling the todos array state into a variable
-	        // var {todos, showCompleted, searchText} = this.state;
-	        // var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+	        return _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).apply(this, arguments));
+	    }
 
-	        return React.createElement(
-	            'div',
-	            null,
-	            React.createElement(
-	                'h1',
-	                { className: 'page-title' },
-	                'Todo App'
-	            ),
-	            React.createElement(
+	    _createClass(TodoApp, [{
+	        key: 'render',
+
+	        // Creating an initial state
+	        // getInitialState: function () {
+	        //     return {
+	        //         showCompleted: false,
+	        //         searchText: '',
+	        //         todos: TodoAPI.getTodos()
+	        //     }
+	        // },
+	        // componentDidUpdate: function () {
+	        //     TodoAPI.setTodos(this.state.todos);
+	        // },
+	        // handleAddTodo: function (text) {
+	        //     this.setState({
+	        //         todos: [
+	        //             // set current todos
+	        //             ...this.state.todos,
+	        //             // add new todo property
+	        //             {
+	        //                 id: uuid(),
+	        //                 text: text,
+	        //                 completed: false,
+	        //                 createdAt: moment().unix(),
+	        //                 completedAt: undefined
+	        //             }
+	        //         ]
+	        //     })
+	        // },
+	        // handleToggle: function (id) {
+	        //     var updatedTodos = this.state.todos.map((todo) => {
+	        //         if (todo.id === id) {
+	        //             // set the completed state to the oppsite of the state it was originally in, true to false
+	        //             todo.completed = !todo.completed;
+	        //             todo.completedAt = todo.completed ? moment().unix() : undefined
+	        //         }
+	        //         return todo;
+	        //     });
+
+	        //     this.setState({todos: updatedTodos});
+	        // },
+	        // handleSearch: function (showCompleted, searchText) {
+	        //     this.setState ({
+	        //         showCompleted: showCompleted,
+	        //         searchText: searchText.toLowerCase()
+	        //     })
+	        // },
+	        value: function render() {
+	            // pulling the todos array state into a variable
+	            // var {todos, showCompleted, searchText} = this.state;
+	            // var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+
+	            return React.createElement(
 	                'div',
-	                { className: 'row' },
+	                null,
+	                React.createElement(
+	                    'h1',
+	                    { className: 'page-title' },
+	                    'Todo App'
+	                ),
 	                React.createElement(
 	                    'div',
-	                    { className: 'columns medium-6 large-5 small-centered' },
+	                    { className: 'row' },
 	                    React.createElement(
 	                        'div',
-	                        { className: 'container' },
-	                        React.createElement(_TodoSearch2.default, null),
-	                        React.createElement(_TodoList2.default, null),
-	                        React.createElement(_Addtodo2.default, null)
+	                        { className: 'columns medium-6 large-5 small-centered' },
+	                        React.createElement(
+	                            'div',
+	                            { className: 'container' },
+	                            React.createElement(_TodoSearch2.default, null),
+	                            React.createElement(_TodoList2.default, null),
+	                            React.createElement(_Addtodo2.default, null)
+	                        )
 	                    )
 	                )
-	            )
-	        );
-	    }
-	});
+	            );
+	        }
+	    }]);
+
+	    return TodoApp;
+	}(React.Component);
+
+	;
 
 	module.exports = TodoApp;
 
@@ -26983,11 +27010,19 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _Todo = __webpack_require__(254);
 
 	var _Todo2 = _interopRequireDefault(_Todo);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(8);
 
@@ -26996,39 +27031,52 @@
 
 	var TodoAPI = __webpack_require__(382);
 
-	var TodoList = exports.TodoList = React.createClass({
-	    displayName: 'TodoList',
+	var TodoList = exports.TodoList = function (_React$Component) {
+	    _inherits(TodoList, _React$Component);
 
-	    render: function render() {
-	        var _props = this.props,
-	            todos = _props.todos,
-	            showCompleted = _props.showCompleted,
-	            searchText = _props.searchText;
+	    function TodoList() {
+	        _classCallCheck(this, TodoList);
 
-
-	        var renderTodos = function renderTodos() {
-	            if (todos.length === 0) {
-	                return React.createElement(
-	                    'p',
-	                    { className: 'container__message' },
-	                    'Nothing to do yet, add a a task!'
-	                );
-	            }
-	            /* todos.map takes a function, and it calls that function for every element in the array,
-	            and whatever you return gets replaced. This acts like a foreach loop. */
-	            return TodoAPI.filterTodos(todos, showCompleted, searchText).map(function (todo) {
-	                return {/* ... is a spread operator that allows you to spread out todo objects into 
-	                        individual props */}, React.createElement(_Todo2.default, _extends({ key: todo.id }, todo));
-	            });
-	        };
-
-	        return React.createElement(
-	            'div',
-	            null,
-	            renderTodos()
-	        );
+	        return _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).apply(this, arguments));
 	    }
-	});
+
+	    _createClass(TodoList, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props,
+	                todos = _props.todos,
+	                showCompleted = _props.showCompleted,
+	                searchText = _props.searchText;
+
+
+	            var renderTodos = function renderTodos() {
+	                if (todos.length === 0) {
+	                    return React.createElement(
+	                        'p',
+	                        { className: 'container__message' },
+	                        'Nothing to do yet, add a a task!'
+	                    );
+	                }
+	                /* todos.map takes a function, and it calls that function for every element in the array,
+	                and whatever you return gets replaced. This acts like a foreach loop. */
+	                return TodoAPI.filterTodos(todos, showCompleted, searchText).map(function (todo) {
+	                    return {/* ... is a spread operator that allows you to spread out todo objects into 
+	                            individual props */}, React.createElement(_Todo2.default, _extends({ key: todo.id }, todo));
+	                });
+	            };
+
+	            return React.createElement(
+	                'div',
+	                null,
+	                renderTodos()
+	            );
+	        }
+	    }]);
+
+	    return TodoList;
+	}(React.Component);
+
+	;
 
 	// connect the store to components
 	module.exports = connect(function (state) {
@@ -27041,6 +27089,18 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var React = __webpack_require__(8);
 
 	var _require = __webpack_require__(166),
@@ -27049,59 +27109,72 @@
 	var moment = __webpack_require__(255);
 	var actions = __webpack_require__(381);
 
-	var Todo = React.createClass({
-	    displayName: 'Todo',
+	var Todo = exports.Todo = function (_React$Component) {
+	    _inherits(Todo, _React$Component);
 
-	    render: function render() {
-	        var _props = this.props,
-	            id = _props.id,
-	            text = _props.text,
-	            completed = _props.completed,
-	            createdAt = _props.createdAt,
-	            completedAt = _props.completedAt,
-	            dispatch = _props.dispatch;
+	    function Todo() {
+	        _classCallCheck(this, Todo);
 
-	        var todoClassName = completed ? 'todo todo-completed' : 'todo';
-	        var renderDate = function renderDate() {
-	            var message = 'Created ';
-	            var timestamp = createdAt;
+	        return _possibleConstructorReturn(this, (Todo.__proto__ || Object.getPrototypeOf(Todo)).apply(this, arguments));
+	    }
 
-	            if (completed) {
-	                message = 'Completed ';
-	                timestamp = completedAt;
-	            }
+	    _createClass(Todo, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props,
+	                id = _props.id,
+	                text = _props.text,
+	                completed = _props.completed,
+	                createdAt = _props.createdAt,
+	                completedAt = _props.completedAt,
+	                dispatch = _props.dispatch;
 
-	            return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
-	        };
+	            var todoClassName = completed ? 'todo todo-completed' : 'todo';
+	            var renderDate = function renderDate() {
+	                var message = 'Created ';
+	                var timestamp = createdAt;
 
-	        return React.createElement(
-	            'div',
-	            { className: todoClassName, onClick: function onClick() {
-	                    // this.props.onToggle(id);
-	                    dispatch(actions.toggleTodo(id));
-	                } },
-	            React.createElement(
+	                if (completed) {
+	                    message = 'Completed ';
+	                    timestamp = completedAt;
+	                }
+
+	                return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
+	            };
+
+	            return React.createElement(
 	                'div',
-	                null,
-	                React.createElement('input', { type: 'checkbox', checked: completed })
-	            ),
-	            React.createElement(
-	                'div',
-	                null,
+	                { className: todoClassName, onClick: function onClick() {
+	                        // this.props.onToggle(id);
+	                        dispatch(actions.toggleTodo(id));
+	                    } },
 	                React.createElement(
-	                    'p',
+	                    'div',
 	                    null,
-	                    text
+	                    React.createElement('input', { type: 'checkbox', checked: completed })
 	                ),
 	                React.createElement(
-	                    'p',
-	                    { className: 'todo__subtext' },
-	                    renderDate()
+	                    'div',
+	                    null,
+	                    React.createElement(
+	                        'p',
+	                        null,
+	                        text
+	                    ),
+	                    React.createElement(
+	                        'p',
+	                        { className: 'todo__subtext' },
+	                        renderDate()
+	                    )
 	                )
-	            )
-	        );
-	    }
-	});
+	            );
+	        }
+	    }]);
+
+	    return Todo;
+	}(React.Component);
+
+	;
 
 	module.exports = connect()(Todo);
 
@@ -43860,6 +43933,15 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var React = __webpack_require__(8);
 
 	var _require = __webpack_require__(166),
@@ -43867,42 +43949,57 @@
 
 	var actions = __webpack_require__(381);
 
-	var AddTodo = exports.AddTodo = React.createClass({
-	    displayName: 'AddTodo',
+	var AddTodo = exports.AddTodo = function (_React$Component) {
+	    _inherits(AddTodo, _React$Component);
 
-	    onSubmit: function onSubmit(e) {
-	        // this will prevent the current page from refereshing when the form is submitted
-	        e.preventDefault();
-	        var dispatch = this.props.dispatch;
+	    function AddTodo() {
+	        _classCallCheck(this, AddTodo);
 
-	        var todo = this.refs.todoInput.value;
-
-	        if (todo.length > 0) {
-	            this.refs.todoInput.value = "";
-	            // add a prop called todoAdd passing in todo input
-	            // this.props.todoAdd(todo);
-	            dispatch(actions.addTodo(todo));
-	        } else {
-	            this.refs.todoInput.focus();
-	        }
-	    },
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'container__footer' },
-	            React.createElement(
-	                'form',
-	                { onSubmit: this.onSubmit },
-	                React.createElement('input', { type: 'text', ref: 'todoInput', placeholder: 'eg. Feed the dog' }),
-	                React.createElement(
-	                    'button',
-	                    { className: 'button expanded' },
-	                    'Add Task'
-	                )
-	            )
-	        );
+	        return _possibleConstructorReturn(this, (AddTodo.__proto__ || Object.getPrototypeOf(AddTodo)).apply(this, arguments));
 	    }
-	});
+
+	    _createClass(AddTodo, [{
+	        key: 'onSubmit',
+	        value: function onSubmit(e) {
+	            // this will prevent the current page from refereshing when the form is submitted
+	            e.preventDefault();
+	            var dispatch = this.props.dispatch;
+
+	            var todo = this.refs.todoInput.value;
+
+	            if (todo.length > 0) {
+	                this.refs.todoInput.value = "";
+	                // add a prop called todoAdd passing in todo input
+	                // this.props.todoAdd(todo);
+	                dispatch(actions.addTodo(todo));
+	            } else {
+	                this.refs.todoInput.focus();
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'div',
+	                { className: 'container__footer' },
+	                React.createElement(
+	                    'form',
+	                    { onSubmit: this.onSubmit.bind(this) },
+	                    React.createElement('input', { type: 'text', ref: 'todoInput', placeholder: 'eg. Feed the dog' }),
+	                    React.createElement(
+	                        'button',
+	                        { className: 'button expanded' },
+	                        'Add Task'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return AddTodo;
+	}(React.Component);
+
+	;
 
 	exports.default = connect()(AddTodo);
 
@@ -43915,6 +44012,15 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var React = __webpack_require__(8);
 
 	var _require = __webpack_require__(166),
@@ -43922,50 +44028,64 @@
 
 	var actions = __webpack_require__(381);
 
-	var TodoSearch = exports.TodoSearch = React.createClass({
-	    displayName: 'TodoSearch',
+	var TodoSearch = exports.TodoSearch = function (_React$Component) {
+	    _inherits(TodoSearch, _React$Component);
 
-	    // handleSearch: function () {
-	    //     var showCompleted = this.refs.showCompleted.checked;
-	    //     var searchText = this.refs.searchText.value;
+	    function TodoSearch() {
+	        _classCallCheck(this, TodoSearch);
 
-	    //     this.props.onSearch(showCompleted, searchText);
-	    // },
-	    render: function render() {
-	        var _this = this;
-
-	        var _props = this.props,
-	            dispatch = _props.dispatch,
-	            showCompleted = _props.showCompleted,
-	            searchText = _props.searchText;
-
-
-	        return React.createElement(
-	            'div',
-	            { className: 'container__header' },
-	            React.createElement(
-	                'div',
-	                null,
-	                React.createElement('input', { type: 'search', ref: 'searchText', placeholder: 'Search todos', value: searchText, onChange: function onChange() {
-	                        var searchText = _this.refs.searchText.value;
-	                        dispatch(actions.setSearchText(searchText));
-	                    } })
-	            ),
-	            React.createElement(
-	                'div',
-	                null,
-	                React.createElement(
-	                    'label',
-	                    null,
-	                    React.createElement('input', { type: 'checkbox', ref: 'showCompleted', checked: showCompleted, onChange: function onChange() {
-	                            dispatch(actions.toggleShowCompleted());
-	                        } }),
-	                    'Show Completed Todos'
-	                )
-	            )
-	        );
+	        return _possibleConstructorReturn(this, (TodoSearch.__proto__ || Object.getPrototypeOf(TodoSearch)).apply(this, arguments));
 	    }
-	});
+
+	    _createClass(TodoSearch, [{
+	        key: 'render',
+
+	        // handleSearch: function () {
+	        //     var showCompleted = this.refs.showCompleted.checked;
+	        //     var searchText = this.refs.searchText.value;
+
+	        //     this.props.onSearch(showCompleted, searchText);
+	        // },
+	        value: function render() {
+	            var _this2 = this;
+
+	            var _props = this.props,
+	                dispatch = _props.dispatch,
+	                showCompleted = _props.showCompleted,
+	                searchText = _props.searchText;
+
+
+	            return React.createElement(
+	                'div',
+	                { className: 'container__header' },
+	                React.createElement(
+	                    'div',
+	                    null,
+	                    React.createElement('input', { type: 'search', ref: 'searchText', placeholder: 'Search todos', value: searchText, onChange: function onChange() {
+	                            var searchText = _this2.refs.searchText.value;
+	                            dispatch(actions.setSearchText(searchText));
+	                        } })
+	                ),
+	                React.createElement(
+	                    'div',
+	                    null,
+	                    React.createElement(
+	                        'label',
+	                        null,
+	                        React.createElement('input', { type: 'checkbox', ref: 'showCompleted', checked: showCompleted, onChange: function onChange() {
+	                                dispatch(actions.toggleShowCompleted());
+	                            } }),
+	                        'Show Completed Todos'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TodoSearch;
+	}(React.Component);
+
+	;
 
 	exports.default = connect(function (state) {
 	    return {

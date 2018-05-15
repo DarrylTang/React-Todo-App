@@ -7,7 +7,7 @@ import AddTodo from 'Addtodo';
 import TodoSearch from 'TodoSearch';
 // var TodoSearch = require('TodoSearch');
 
-var TodoApp = React.createClass({
+export class TodoApp extends React.Component{
     // Creating an initial state
     // getInitialState: function () {
     //     return {
@@ -53,7 +53,7 @@ var TodoApp = React.createClass({
     //         searchText: searchText.toLowerCase()
     //     })
     // },
-    render: function () {
+    render() {
         // pulling the todos array state into a variable
         // var {todos, showCompleted, searchText} = this.state;
         // var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
@@ -72,7 +72,7 @@ var TodoApp = React.createClass({
                 </div>
             </div>
         );
-    }
-});
+    };
+};
 
 module.exports = TodoApp;
